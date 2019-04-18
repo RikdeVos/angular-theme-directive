@@ -4,24 +4,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
+Run `npm install` once to install. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Theme Directive
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Apply the `[appTheme]` directive to components apply styling. You can pass an object as directive value. In this object the keys are CSS selectors, and the values are the theme properties. These properties update when the theme changes:
 
-## Further help
+```
+<h1 [appTheme]="{ color: 'textHigh' }">Hello World</h1>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Or pass multiple CSS properties:
+
+```
+<button [appTheme]="{ color: 'textLow', 'border-color': 'accent' }">Click</button>
+```
+
+## Theme Service
+
+To switch theme to a pre-defined, call `ThemeService.setThemeName('red')` where 'red' is any of the available themes in the service. You can also select a custom theme by calling `ThemeService.setTheme({ ... })` with the Theme as variable.

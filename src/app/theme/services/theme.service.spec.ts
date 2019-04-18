@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+
 import { ThemeService } from './theme.service';
 import { Theme } from '../models/theme.interface';
 
@@ -27,9 +28,11 @@ describe('ThemeService', () => {
   it('should be able to change theme', async(async () => {
     const themeService: ThemeService = TestBed.get(ThemeService);
 
+    // Change to THEME_A and expect it to be selected
     themeService.setTheme(THEME_A);
     expect(await themeService.theme$.toPromise()).toEqual(THEME_A);
 
+    // Change to THEME_B and expect it to be selected
     themeService.setTheme(THEME_B);
     expect(await themeService.theme$.toPromise()).toEqual(THEME_B);
   }));

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 import { Theme } from '../models/theme.interface';
 
 @Injectable({

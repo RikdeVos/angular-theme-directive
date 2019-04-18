@@ -6,10 +6,11 @@ import {
   OnChanges,
   OnDestroy
 } from '@angular/core';
-import { ThemeService } from '../services/theme.service';
-import { Theme } from '../models/theme.interface';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { ThemeService } from '../services/theme.service';
+import { Theme } from '../models/theme.interface';
 
 @Directive({
   selector: '[appTheme]'

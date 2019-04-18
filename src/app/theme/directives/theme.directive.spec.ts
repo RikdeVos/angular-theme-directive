@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
 import { ThemeDirective } from './theme.directive';
 import { ThemeService } from '../services/theme.service';
-import { BehaviorSubject } from 'rxjs';
 import { Theme } from '../models/theme.interface';
 
 const THEME_A: Theme = {

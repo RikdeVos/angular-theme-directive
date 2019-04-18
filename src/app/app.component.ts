@@ -10,6 +10,6 @@ export class AppComponent {
   constructor(private themeService: ThemeService) {}
 
   themeBtn(themeName: string) {
-    this.themeService.setTheme(themeName);
+    this.themeService.setThemeName(themeName);
   }
 }

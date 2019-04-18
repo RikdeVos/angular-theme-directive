@@ -51,7 +51,6 @@ export class ThemeDirective implements OnInit, OnChanges, OnDestroy {
       if (!this.theme[this.themeInput[property]]) {
         throw Error(`Invalid theme property: ${this.themeInput[property]}`);
       }
-      this.el.nativeElement.style.transition = 'all .3s';
       this.el.nativeElement.style[property] = this.theme[
         this.themeInput[property]
       ];

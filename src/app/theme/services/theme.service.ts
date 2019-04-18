@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Theme } from '../models/theme.interface';
 import { BehaviorSubject } from 'rxjs';
+import { Theme } from '../models/theme.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  private themes: { [themeName: string]: Theme } = {
+  public themes: { [themeName: string]: Theme } = {
     red: {
-      textHigh: 'rgba(0,0,0,1)',
-      textLow: 'rgba(0,0,0,.75)',
-      accent: 'red',
-      bg: '#efefef'
+      textHigh: 'rgb(0, 0, 0)',
+      textLow: 'rgba(0, 0, 0, .75)',
+      accent: 'rgb(255, 0, 0)',
+      bg: 'rgb(239, 239, 239)'
     },
     blue: {
-      textHigh: 'rgba(255,255,255,1)',
-      textLow: 'rgba(255,255,255,.75)',
-      accent: '#2B5DCB',
-      bg: '#000'
+      textHigh: 'rgb(255, 255, 255, 1)',
+      textLow: 'rgba(255, 255, 255, .75)',
+      accent: 'rgb(43, 93, 203)',
+      bg: 'rgb(0, 0, 0)'
     },
     orange: {
-      textHigh: 'rgba(0,0,0,1)',
-      textLow: 'rgba(0,0,0,.75)',
-      accent: 'tomato',
-      bg: 'yellow'
+      textHigh: 'rgba(0, 0, 0)',
+      textLow: 'rgba(0, 0, 0, .75)',
+      accent: 'rgb(255, 99, 71)',
+      bg: 'rgb(255, 255, 0)'
     }
   };
 
@@ -33,11 +33,15 @@ export class ThemeService {
 
   constructor() {}
 
-  setTheme(themeName: string) {
+  public setTheme(theme: Theme): void {
+    this.theme$.next(theme);
+  }
+
+  public setThemeName(themeName: string): void {
     if (this.themes[themeName]) {
-      this.theme$.next(this.themes[themeName]);
+      this.setTheme(this.themes[themeName]);
     } else {
-      throw Error(`Could not find theme with name ${themeName}`);
+      throw new Error(`Could not find theme with name ${themeName}`);
     }
   }
 }

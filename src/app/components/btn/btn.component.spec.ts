@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BtnComponent } from './btn.component';
+import { ThemeModule } from '../../theme/theme.module';
 
 describe('BtnComponent', () => {
   let component: BtnComponent;
@@ -8,9 +9,9 @@ describe('BtnComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BtnComponent ]
-    })
-    .compileComponents();
+      declarations: [BtnComponent],
+      imports: [ThemeModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

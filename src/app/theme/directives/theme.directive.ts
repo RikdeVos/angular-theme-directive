@@ -28,13 +28,13 @@ export class ThemeDirective implements OnInit, OnChanges, OnDestroy {
     this.themeService.theme$.pipe(takeUntil(this.destroy$)).subscribe(theme => {
       this.properties = Object.keys(this.themeInput);
       this.theme = theme;
-      this.updateTheme();
+      this.applyStyles();
     });
   }
 
   ngOnChanges() {
     if (this.properties && this.theme) {
-      this.updateTheme();
+      this.applyStyles();
     }
   }
 
@@ -43,7 +43,7 @@ export class ThemeDirective implements OnInit, OnChanges, OnDestroy {
     this.destroy$.unsubscribe();
   }
 
-  updateTheme() {
+  applyStyles() {
     this.properties.forEach(property => {
       if (!this.themeInput[property]) {
         this.el.nativeElement.style[property] = null;

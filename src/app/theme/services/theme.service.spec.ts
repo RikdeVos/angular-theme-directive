@@ -1,7 +1,8 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, tick, fakeAsync } from '@angular/core/testing';
 
 import { ThemeService } from './theme.service';
 import { Theme } from '../models/theme.interface';
+import { delay } from 'rxjs/operators';
 
 const THEME_A: Theme = {
   textHigh: 'rgb(255, 0, 0)',
@@ -25,24 +26,24 @@ describe('ThemeService', () => {
     expect(themeService).toBeTruthy();
   });
 
-  it('should be able to change theme', async(async () => {
+  it('should be able to change themes', () => {
     const themeService: ThemeService = TestBed.get(ThemeService);
 
     // Change to THEME_A and expect it to be selected
     themeService.setTheme(THEME_A);
-    expect(await themeService.theme$.toPromise()).toEqual(THEME_A);
+    expect(themeService.theme$.value).toEqual(THEME_A);
 
     // Change to THEME_B and expect it to be selected
     themeService.setTheme(THEME_B);
-    expect(await themeService.theme$.toPromise()).toEqual(THEME_B);
-  }));
+    expect(themeService.theme$.value).toEqual(THEME_B);
+  });
 
-  it('should change theme when changing theme name', async(() => {
+  it('should change theme when changing theme name', () => {
     const themeService: ThemeService = TestBed.get(ThemeService);
 
     const spy = spyOn(themeService, 'setTheme');
     themeService.setThemeName('blue');
 
     expect(spy).toHaveBeenCalledWith(themeService.themes.blue);
-  }));
+  });
 });

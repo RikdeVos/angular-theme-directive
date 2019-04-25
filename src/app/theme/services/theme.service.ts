@@ -15,7 +15,7 @@ export class ThemeService {
       bg: 'rgb(239, 239, 239)'
     },
     blue: {
-      textHigh: 'rgb(255, 255, 255, 1)',
+      textHigh: 'rgb(255, 255, 255)',
       textLow: 'rgba(255, 255, 255, .75)',
       accent: 'rgb(43, 93, 203)',
       bg: 'rgb(0, 0, 0)'

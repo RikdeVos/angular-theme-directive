@@ -56,9 +56,9 @@ describe('ThemeDirective Test', () => {
     button = compiled.querySelector('button');
   }));
 
-  it('should create', async(() => {
-    expect(component).toBeDefined();
-  }));
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
   it('should apply the styles on load', () => {
     fixture.detectChanges();
